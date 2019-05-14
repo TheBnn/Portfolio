@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueJS Page</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/common.min.css">
+    <script defer src="js/common.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table" id="table">
+            <div class="input-block">
+                <div class="input-block__item">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" v-model="items.name">
+                </div>
+                <div class="input-block__item">
+                    <label for="quantity">Quantity</label>
+                    <input name="quantity" id="quantity" type="text" v-model="items.quantity">
+                </div>
+                <div class="input-block__item">
+                    <label for="price">Price</label>
+                    <input name="price" id="price" type="text" v-model="items.price">
+                </div>
+                <div class="input-block__add-btn"><button @click="addNewItem()">Add item</button></div>
+
+                <div class="input-block__errors" v-if="error.length">
+                    <ul>
+                        <li v-for="error in error">{{ error }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-items">
+                <div class="table-items__head">
+                    <div>Name</div>
+                    <div>Quantity</div>
+                    <div>Price</div>
+                    <div></div>
+                </div>
+                <div class="table-items__container">
+                    <template v-for="(item,index) in items">
+                        <div class="table-items__item">
+                            <div class="item_name">{{item.name}}</div>
+                            <div class="item_quantity">{{item.quantity}}</div>
+                            <div class="item_price">{{item.price}}</div>
+                            <div class="table-items_item__controls">
+                                <div class="controls_edit-trash active">
+                                    <a href="javascript:void(0);" class="edit" @click="editThisItem(item)"
+                                        v-if="false"><i class="fas fa-edit"></i></a>
+                                    <a href="javascript:void(0);" class="delete" @click="deleteThisItem(item)"><i
+                                            class="fas fa-trash"></i></a>
+                                </div>
+                                <div class="controls_check-times hidden">
+                                    <a href="javascript:void(0);" class="save"><i class="fas fa-check"></i></a>
+                                    <a href="javascript:void(0);" class="cancel"><i class="fas fa-times"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="summary">Summary: <span class='sum' v-model="total">{{total}}</span></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+
+<!-- 
+
+<?php
+* Мои попытки реализовать функционал на Jquery.
+* Согласен код не очень чистый
+* тем не менее он работает
+* буду признателен если посмотрите и его и выскажете свое мнение
+* как его можно переделать
+?>
+
+<script>
+    function calculate() {
+        var sum = 0;
+        $('.table-items__item').each(function () {
+            var first = Number($(this).find('.item_quantity').text());
+            var second = Number($(this).find('.item_price').text());
+            sum += first * second;
+            $('.sum').text(sum);
+        });
+    };
+
+    function trash() {
+        $('.table-items__item').each(function () {
+            $(this).find('.delete').on('click', function () {
+                $(this).parents().eq(1).remove();
+                calculate();
+            });
+        });
+    };
+
+
+    function edit() {
+        $('.table-items__item').each(function () {
+            $(this).find('.edit').on('click', function () {
+                var quantity = $(this).parents().eq(2).find('.item_quantity');
+                var price = $(this).parents().eq(2).find('.item_price');
+
+                var qual_val = quantity.text();
+                var price_val = price.text();
+
+                var edit = $(this).parent().find('.edit');
+                var del = $(this).parent().find('.delete');
+
+                quantity.empty().append('<input type="text">');
+                price.empty().append('<input type="text">');
+
+                quantity.find('input').val(qual_val).focus();
+                price.find('input').val(price_val);
+
+                $(this).parents().eq(1).find('.controls_edit-trash').toggle(false);
+                $(this).parents().eq(1).find('.controls_check-times').toggle(true);
+
+                calculate();
+            });
+        });
+    };
+
+    function cancel() {
+        $('.table-items__item').each(function () {
+            $(this).find('.cancel').on('click', function () {
+                var quantity = $(this).parents().eq(2).find('.item_quantity');
+                var price = $(this).parents().eq(2).find('.item_price');
+
+                /*подгружать из локал сторедж*/
+                var q = quantity.find('input').val();
+                var p = price.find('input').val();
+
+                quantity.empty().text('123');
+                price.empty().text('123');
+                /*подгружать из локал сторедж*/
+
+                $(this).parents().eq(1).find('.controls_edit-trash').toggle(true);
+                $(this).parents().eq(1).find('.controls_check-times').toggle(false);
+
+                calculate();
+            });
+        });
+    };
+
+    function save() {
+        $('.table-items__item').each(function () {
+            $(this).find('.save').on('click', function () {
+                var quantity = $(this).parents().eq(2).find('.item_quantity');
+                var price = $(this).parents().eq(2).find('.item_price');
+
+                var qual_val = quantity.find('input').val();
+                var price_val = price.find('input').val();
+
+                quantity.empty().append(qual_val);
+                price.empty().append(price_val);
+
+                $(this).parents().eq(1).find('.controls_edit-trash').toggle(true);
+                $(this).parents().eq(1).find('.controls_check-times').toggle(false);
+
+                calculate();
+            });
+        });
+    };
+
+    $(document).ready(function () {
+        calculate();
+        trash();
+        edit();
+        save();
+        cancel();
+    });
+</script>
+ -->
+
+
+
+</html>

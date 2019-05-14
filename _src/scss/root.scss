@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto Condensed';
+    font-size: 1rem;
+    color: #969696;
+}
+
+a {
+    text-decoration: none;
+    transition: 500ms;
+}
+
+input {
+    font-family: 'Roboto Condensed';
+    outline: none;
+}
+
+input::placeholder {}
+
+textarea {
+    font-family: 'Roboto Condensed';
+}

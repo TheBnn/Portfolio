@@ -1,0 +1,33 @@
+{
+  "name": "lapkilab.ru-test-v3.psd",
+  "version": "1.0.0",
+  "main": "index.php",
+  "dependencies": {
+    "fullpage.js": "^3.0.5",
+    "gulp": "^4.0.2",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cache": "^1.1.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sprite-generator": "^0.2.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp.spritesmith": "^6.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "me",
+  "license": "ISC",
+  "description": ""
+}
