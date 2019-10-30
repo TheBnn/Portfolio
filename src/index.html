@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Its my Portfolio</title>
+    <meta name="description" content="testPage" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/common.min.css">
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+
+    <div id="fullpage">
+        <section class="section section-bg-home" data-anchor="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 box">
+                        <div class="title-name">
+                            <div class="title-name__item">Мельников Константин</div>
+                            <div class="title-name__item_modify">FRONT-END / WEB-DEVELOPER</div>
+                        </div>
+                    </div>
+                    <a href="#about"> <span class="button_down"> <i class="fa fa-chevron-down"></i></span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-anchor="about">
+            <div class="container">
+                <div class="title">Обо мне</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about">
+
+                        </div>
+                    </div>
+                    <a href="#portfolio"> <span class="button_down"> <i class="fa fa-chevron-down"></i></span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section works" data-anchor="portfolio">
+            <div class="grid vue-template" id="table">
+                <gridWorks></gridWorks>
+            </div>            
+            <a href="#contacts"> <span class="button_down"> <i class="fa fa-chevron-down"></i></span></a>
+        </section>
+
+        <section class="section" data-anchor="contacts">
+            <div class="container">
+                <div class="title">Контакты</div>
+                <div class="containers">
+                    <div class="box-content">
+                        <div class="content">
+                            <h2>01</h2>
+                            <h3>Email</h3>
+                            <p>ds.as.12@mail.ru</p>
+                            <a href="#" class="vs-hidden">Написать мне</a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="content">
+                            <h2>02</h2>
+                            <h3>VK</h3>
+                            <p>vk.com/id291298013</p>
+                            <a href="https://vk.com/id291298013">Перейти на страничку</a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="content">
+                            <h2>03</h2>
+                            <h3>Телефон</h3>
+                            <p>+7 (917) 205-88-02</p>
+                            <a href="#" class="vs-hidden">Позвонить мне</a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="content">
+                            <h2>04</h2>
+                            <h3>Телеграм</h3>
+                            <p>TheBanana_1</p>
+                            <a href="https://t.me/TheBanana_1">Написать мне</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#home"> <span class="button_down"> <i class="fa fa-chevron-up"></i></span></a>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

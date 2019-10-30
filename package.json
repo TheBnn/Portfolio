@@ -1,33 +1,37 @@
 {
-  "name": "lapkilab.ru-test-v3.psd",
+  "name": "portfolio",
+  "description": "A Vue.js project",
   "version": "1.0.0",
-  "main": "index.php",
-  "dependencies": {
-    "fullpage.js": "^3.0.5",
-    "gulp": "^4.0.2",
-    "vue": "^2.6.10"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.26.5",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-cache": "^1.1.1",
-    "gulp-csso": "^3.0.1",
-    "gulp-html-minifier": "^0.1.8",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-rigger": "^0.5.8",
-    "gulp-sass": "^4.0.2",
-    "gulp-sass-glob": "^1.0.9",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-sprite-generator": "^0.2.3",
-    "gulp-uglify": "^3.0.2",
-    "gulp.spritesmith": "^6.9.0"
-  },
+  "author": "TheBnn <ds.as.12@mail.ru>",
+  "license": "MIT",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "author": "me",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "fullpage.js": "^3.0.7",
+    "jquery": "^3.4.1",
+    "vue": "^2.5.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^6.0.7",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.9.1"
+  }
 }
