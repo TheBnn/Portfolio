@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import gridworks from './js/gridWorksVue.vue'
+import titlemain from './js/infoTitle.vue'
 import './scss/common.scss'
-import fullpage from 'fullpage.js';
+import fullpage from 'fullpage.js'
 import './js/common.js'
 
 var fullPageInstance = new fullpage('#fullpage', {
   navigation: true,
 });
+
+Vue.config.productionTip = false;
 
 const vm = new Vue({
   el: '#table',
@@ -92,6 +95,7 @@ mounted() {
     }
 },
   components: {
-    gridworks
+    gridworks,
+    titlemain
   }
 })

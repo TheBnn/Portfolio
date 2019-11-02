@@ -29,21 +29,11 @@
     <script src="js/common.js"></script>
 </head>
 
-<body>
+<body id="table">
 
     <div id="fullpage">
         <section class="section section-bg-home" data-anchor="home">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 box">
-                        <div class="title-name">
-                            <div class="title-name__item">Мельников Константин</div>
-                            <div class="title-name__item_modify">FRONT-END / WEB-DEVELOPER</div>
-                        </div>
-                    </div>
-                    <a href="#about"> <span class="button_down"> <i class="fa fa-chevron-down"></i></span></a>
-                </div>
-            </div>
+            <titleMain></titleMain>
         </section>
 
         <section class="section" data-anchor="about">
@@ -61,7 +51,7 @@
         </section>
 
         <section class="section works" data-anchor="portfolio">
-            <div class="grid vue-template" id="table">
+            <div class="grid vue-template">
                 <gridWorks></gridWorks>
             </div>            
             <a href="#contacts"> <span class="button_down"> <i class="fa fa-chevron-down"></i></span></a>
