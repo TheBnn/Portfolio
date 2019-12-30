@@ -1,5 +1,8 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import gridworks from './js/gridWorksVue.vue'
+import Main from "./pages/index.vue"
+import vueProjects from './pages/vue.vue'
 import titlemain from './js/infoTitle.vue'
 import './scss/common.scss'
 import fullpage from 'fullpage.js'
@@ -10,6 +13,18 @@ var fullPageInstance = new fullpage('#fullpage', {
 });
 
 Vue.config.productionTip = false;
+Vue.use(VueRouter);
+
+
+const NotFound = { template: '<p>Страница не найдена</p>' }
+const Portfolio = { template: vueProjects}
+const mainPage = { template: Main}
+
+const routes = {
+    '/404': NotFound,
+    '/' : mainPage,
+    '/vue': Portfolio
+}
 
 const vm = new Vue({
   el: '#table',
@@ -21,7 +36,7 @@ const vm = new Vue({
     }],
     total: '',
     error: [],
-
+    currentRoute: window.location.pathname
 },
 methods: {
     addNewItem() {
@@ -94,8 +109,24 @@ mounted() {
         }
     }
 },
-  components: {
+components: {
     gridworks,
-    titlemain
-  }
+    titlemain,
+},
+computed:{
+    ViewComponent () {
+        const matchingView = routes[this.currentRoute]
+        return matchingView
+          ? require('./pages/' + matchingView + '.vue')
+          : require('./pages/' + matchingView + '.vue')
+      }
+    },
+    render (h) {
+      return h(this.ViewComponent)
+    }
 })
+
+window.addEventListener('popstate', () => {
+    app.currentRoute = window.location.pathname
+  })
+  
