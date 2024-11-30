@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "fullpage.js": "^3.0.7",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "vue": "^2.5.11"
   },
   "browserslist": [
